@@ -6,7 +6,7 @@ public class Main {
 
 	static ArrayList<Integer> expenses = new ArrayList<>();
 
-	// initializes expenses
+	// initializes expenses with mock values
 	static {
 		expenses.add(1000);
 		expenses.add(2300);
@@ -28,20 +28,21 @@ public class Main {
 	}
 
 	private static void optionsSelection() {
-		String[] arr = { "1. I wish to review my expenditure", "2. I wish to add my expenditure",
+		String[] theOptions = { "1. I wish to review my expenditure", "2. I wish to add my expenditure",
 				"3. I wish to delete my expenditure", "4. I wish to sort the expenditures",
 				"5. I wish to search for a particular expenditure", "6. Close the application" };
-		int[] arr1 = { 1, 2, 3, 4, 5, 6 };
-		for (int i = 0; i < arr1.length; i++) {
-			System.out.println(arr[i]);
+
+		for (String option : theOptions) {
+			System.out.println(option);
 		}
 
 		System.out.println("\nEnter your choice:\t");
 		Scanner sc = new Scanner(System.in);
-		int options = sc.nextInt();
-		switch (options) {
+		int choice = sc.nextInt();
+
+		switch (choice) {
 		case 1:
-			System.out.println("Your saved expenses are listed below: \n");
+			System.out.println("Your saved expenses are listed below:");
 			System.out.println(expenses + "\n");
 			optionsSelection();
 			break;
@@ -57,7 +58,7 @@ public class Main {
 			System.out.println(
 					"You are about the delete all your expenses! \nConfirm again by selecting the same option...\n");
 			int con_choice = sc.nextInt();
-			if (con_choice == options) {
+			if (con_choice == choice) {
 				expenses.clear();
 				System.out.println(expenses + "\n");
 				System.out.println("All your expenses are erased!\n");
@@ -85,7 +86,7 @@ public class Main {
 			optionsSelection();
 			break;
 		}
-		
+
 		sc.close();
 	}
 
@@ -103,12 +104,12 @@ public class Main {
 			i++;
 		}
 
-		System.out.printf("%d is not in the expenditure.\n", target);
+		System.out.printf("($%d) is not in the expenditure.\n\n", target);
 	}
 
 	private static void sortExpenses() {
 		Collections.sort(expenses);
-		System.out.println("Your expenses have been sorted:\n");
+		System.out.println("Your expenses have been sorted:");
 		System.out.println(expenses + "\n");
 	}
 }
