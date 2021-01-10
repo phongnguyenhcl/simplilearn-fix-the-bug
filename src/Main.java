@@ -6,6 +6,7 @@ public class Main {
 
 	static ArrayList<Integer> expenses = new ArrayList<>();
 
+	// initializes expenses
 	static {
 		expenses.add(1000);
 		expenses.add(2300);
@@ -31,8 +32,7 @@ public class Main {
 				"3. I wish to delete my expenditure", "4. I wish to sort the expenditures",
 				"5. I wish to search for a particular expenditure", "6. Close the application" };
 		int[] arr1 = { 1, 2, 3, 4, 5, 6 };
-		int slen = arr1.length;
-		for (int i = 0; i < slen; i++) {
+		for (int i = 0; i < arr1.length; i++) {
 			System.out.println(arr[i]);
 		}
 
@@ -85,6 +85,8 @@ public class Main {
 			optionsSelection();
 			break;
 		}
+		
+		sc.close();
 	}
 
 	private static void closeApp() {
@@ -100,7 +102,7 @@ public class Main {
 			}
 			i++;
 		}
-		
+
 		System.out.printf("%d is not in the expenditure.\n", target);
 	}
 
